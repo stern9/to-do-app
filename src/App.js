@@ -1,6 +1,7 @@
 import { useState } from "react";
 import Form from "./Form";
 import "./App.css";
+import FormV2 from "./FormV2";
 
 const App = () => {
   const [todos, setTodos] = useState([]);
@@ -36,6 +37,8 @@ const App = () => {
         ))}
       </div>
       <button onClick={() => setTodos([])}>reset</button>
+      <hr />
+      <FormV2 />
     </div>
   );
 };

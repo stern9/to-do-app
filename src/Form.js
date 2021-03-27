@@ -21,7 +21,7 @@ const Form = ({ onSubmit }) => {
         resetValue();
       }}
     >
-      <input {...text} />
+      <input {...text} placeholder="add to do" />
     </form>
   );
 };
