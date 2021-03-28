@@ -2,6 +2,7 @@ import { useState } from "react";
 import Form from "./Form";
 import "./App.css";
 import FormV2 from "./FormV2";
+import FormV3 from "./FormV3";
 
 const App = () => {
   const [todos, setTodos] = useState([]);
@@ -39,6 +40,7 @@ const App = () => {
       <button onClick={() => setTodos([])}>reset</button>
       <hr />
       <FormV2 />
+      <FormV3 />
     </div>
   );
 };
