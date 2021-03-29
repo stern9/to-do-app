@@ -1,47 +1,19 @@
-import { useState } from "react";
-import Form from "./Form";
-import "./App.css";
-import FormV2 from "./FormV2";
-import FormV3 from "./FormV3";
+import "./Context.css";
+import FormInput from "./components2/FormInput";
+import List from "./components2/List";
+import Footer from "./components2/Footer";
+import { DataProvider } from "./components2/DataProvider";
 
 const App = () => {
-  const [todos, setTodos] = useState([]);
-
-  const toggleComplete = (i) =>
-    setTodos(
-      todos.map((todo, k) =>
-        k === i
-          ? {
-              ...todo,
-              complete: !todo.complete,
-            }
-          : todo
-      )
-    );
-
   return (
-    <div className="App">
-      <Form
-        onSubmit={(text) => setTodos([{ text, complete: false }, ...todos])}
-      />
-      <div>
-        {todos.map(({ text, complete }, i) => (
-          <div
-            key={text}
-            onClick={() => toggleComplete(i)}
-            style={{
-              textDecoration: complete ? "line-through" : "",
-            }}
-          >
-            {text}
-          </div>
-        ))}
+    <DataProvider>
+      <div className="App">
+        <h1>To Do List</h1>
+        <FormInput />
+        <List />
+        <Footer />
       </div>
-      <button onClick={() => setTodos([])}>reset</button>
-      <hr />
-      <FormV2 />
-      <FormV3 />
-    </div>
+    </DataProvider>
   );
 };
 
